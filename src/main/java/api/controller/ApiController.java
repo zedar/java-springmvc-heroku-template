@@ -3,6 +3,7 @@ package api.controller;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,11 +14,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import lombok.extern.slf4j.Slf4j;
 
 import api.entity.Action;
+import api.service.ActionService;
 
 @Slf4j
 @Controller
 public class ApiController {
   
+  @Autowired
+  ActionService actionService;
+
   @RequestMapping(method=RequestMethod.GET, value="/actions", headers="Accept=application/json")
   public @ResponseBody List<Action> findActions(/*@RequestParam(value="query", required=true)String query*/) {
     log.debug("CALLED");

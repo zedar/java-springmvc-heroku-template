@@ -1,5 +1,6 @@
 apply plugin: "java"
 apply plugin: "application"
+apply plugin: "groovy"
 
 mainClassName="api.server.Launcher"
 
@@ -28,6 +29,12 @@ dependencies {
     "org.apache.logging.log4j:log4j-slf4j-impl:2.1",
 
     "org.projectlombok:lombok:1.14.8"
+  )
+
+  testCompile(
+    "org.springframework:spring-test:4.1.2.RELEASE",
+    "org.spockframework:spock-core:0.7-groovy-2.0",
+    "cglib:cglib-nodep:3.1"
   )
 }
 

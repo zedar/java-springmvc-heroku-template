@@ -1,20 +1,24 @@
-Template project for API development with Java, Jetty, SpringMVC and Heroku
+Template project for API development with Java, Jetty, SpringMVC, Spock and Heroku
 ------------------------------------
 The aim of this project is to provide template for standalone java application with:
   * embedded jetty container for HTTP support,
   * SpringMVC for easy development of REST API,
   * lombok for POJO shortcuts (constructors, fields access methods).
+  * Spockframework for easy testing of API, for mocking and stubbing of services
   * gradle configuration for easy heroku deployment
 
 Example app should be accessible under the link [api-springmvc-jetty](https://api-springmvc-jetty.herokuapp.com/api/actions) or as a call:
 
     $ curl -X GET https://api-springmvc-jetty.herokuapp.com/api/actions
 
+**Table of contents:**
+
 # Gradle plugins
 
 Project depends on two main plugins:
   * java
   * application
+  * groovy (for testing with *spockframework*)
 
 # Dependencies
 
@@ -88,6 +92,27 @@ constructors, logger field (with @Slf4j, very similiar to groovy.util.logging.Sl
     dependencies {
       compile(
         "org.projectlombok:lombok:1.14.8"
+      )
+    }
+
+## Unit testing
+
+### spring-test
+Add mocks for spring web mvc testing.
+
+    dependencies {
+      testCompile(
+        "org.springframework:spring-test:4.1.2.RELEASE"
+      )
+    }
+
+### spock BDD testing framework
+Add *spock* with *cglib* for java class mocking
+
+    dependencies {
+      testCompile(
+        "org.spockframework:spock-core:0.7-groovy-2.0",
+        "cglib:cglib-nodep:3.1"
       )
     }
 
@@ -281,6 +306,24 @@ Location: **src/main/api/entity/Action.java**
 
 ## Example controller class
 Location: **src/main/api/controller/ApiController.java**
+
+# Testing
+Location: **src/test/groovy**
+Because this project uses *spockframework*, so all unit tests are written in *Groovy* lanugage.
+
+To run tests execute command:
+
+    $ gradle test
+
+API is based on *SpringMVC*, so for testing we use spring mocking funkcionality:
+
+    org.springframework.test.web.servlet.MockMvc
+    org.springframework.test.web.servlet.setup.MockMvcBuildes.standaloneSetup
+    org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+
+Mocked APIs return HTTP status codes defined in
+
+    org.springframework.http.HttpStatus.*
 
 # Heroku configuration
 This project uses gradle build-pack from *Heroku*.  
