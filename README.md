@@ -6,6 +6,10 @@ The aim of this project is to provide template for standalone java application w
   * lombok for POJO shortcuts (constructors, fields access methods).
   * gradle configuration for easy heroku deployment
 
+Example app should be accessible under the link [api-springmvc-jetty](https://api-springmvc-jetty.herokuapp.com/api/actions) or as a call:
+
+    $ curl -X GET https://api-springmvc-jetty.herokuapp.com/api/actions
+
 # Gradle plugins
 
 Project depends on two main plugins:
@@ -340,6 +344,48 @@ Create new heroku application
 
     $ heroku create api-test
     $ git push heroku master
+
+# Test example API
+Locally
+
+    $ curl -X GET http://localhost:9090/api/actions
+
+On Heroku
+
+    $ curl -X GET https://api-springmvc-jetty.herokuapp.com/api/actions
+
+As result JSON should be returned:
+
+    [
+        {
+            "id": "1",
+            "name": "a1",
+            "description": "Action 1",
+            "url": "action_url",
+            "tags": "no tags"
+        },
+        {
+            "id": "2",
+            "name": "a2",
+            "description": "Action 2",
+            "url": "action_url",
+            "tags": "no tags"
+        },
+        {
+            "id": "3",
+            "name": "a3",
+            "description": "Action 3",
+            "url": "action_url",
+            "tags": "no tags"
+        },
+        {
+            "id": "4",
+            "name": "a4",
+            "description": "Action 4",
+            "url": "action_url",
+            "tags": "no tags"
+        }
+    ]
 
 # Miscellaneous
 
