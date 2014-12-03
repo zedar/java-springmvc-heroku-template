@@ -1,0 +1,43 @@
+apply plugin: "java"
+apply plugin: "application"
+
+mainClassName="api.server.Launcher"
+
+// Heroku
+targetCompatibility="1.7"
+sourceCompatibility="1.7"
+// -- --
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+}
+
+dependencies {
+  compile(
+    "org.eclipse.jetty.aggregate:jetty-all:9+",
+
+    "org.springframework:spring-webmvc:4.1.2.RELEASE",
+
+    "com.fasterxml.jackson.core:jackson-core:2+",
+    "com.fasterxml.jackson.core:jackson-annotations:2+",
+    "com.fasterxml.jackson.core:jackson-databind:2+",
+
+    "org.apache.logging.log4j:log4j-api:2.1",
+    "org.apache.logging.log4j:log4j-core:2.1",
+    "org.apache.logging.log4j:log4j-slf4j-impl:2.1",
+
+    "org.projectlombok:lombok:1.14.8"
+  )
+}
+
+// gradle wrapper
+task wrapper(type: Wrapper) {
+  description "Install gradle-wrapper"
+}
+
+// Heroku
+task stage(dependsOn: [clean, installApp]) {
+  description "Clean, build and install application"
+}
+// -- --
