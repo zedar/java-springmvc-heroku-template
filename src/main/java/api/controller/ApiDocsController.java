@@ -108,6 +108,20 @@ public class ApiDocsController {
             g.writeEndObject();
           g.writeEndObject();
         g.writeEndObject();
+        g.writeObjectFieldStart("Error");
+          g.writeArrayFieldStart("required");
+            g.writeString("code");
+            g.writeString("message");
+          g.writeEndArray();
+          g.writeObjectFieldStart("properties");
+            g.writeObjectFieldStart("code");
+              g.writeStringField("type", "string");
+            g.writeEndObject();
+            g.writeObjectFieldStart("message");
+              g.writeStringField("type", "string");
+            g.writeEndObject();
+          g.writeEndObject();
+        g.writeEndObject();
       g.writeEndObject();
     g.writeEndObject();
 
