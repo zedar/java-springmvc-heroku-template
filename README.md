@@ -1,4 +1,4 @@
-Template project for API development with Java, Jetty, SpringMVC, Spock and Heroku
+Template project for API development with Java, Jetty, SpringMVC, Spock, Swagger and Heroku
 ------------------------------------
 The aim of this project is to provide template for standalone java application with:
   * embedded jetty container for HTTP support,
@@ -6,6 +6,7 @@ The aim of this project is to provide template for standalone java application w
   * lombok for POJO shortcuts (constructors, fields access methods).
   * Spockframework for easy testing of API, for mocking and stubbing of services
   * gradle configuration for easy heroku deployment
+  * Swagger API definition
 
 Example app should be accessible under the link [api-springmvc-jetty](https://api-springmvc-jetty.herokuapp.com/api/actions) or as a call:
 
