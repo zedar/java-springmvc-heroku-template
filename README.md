@@ -12,6 +12,10 @@ Example app should be accessible under the link [api-springmvc-jetty](https://ap
 
     $ curl -X GET https://api-springmvc-jetty.herokuapp.com/api/actions
 
+Swagger API documentation should be accessible under the link [api-docs](https://api-springmvc-jetty.herokuapp.com/api-docs)
+
+    $ curl -X GET http://api-springmvc-jetty.herokuapp.com/api-docs
+
 **Table of contents:**
 
 # Gradle plugins
