@@ -75,9 +75,7 @@ public class ApiDocsController {
               g.writeObjectFieldStart("default");
                 g.writeStringField("description", "Unexpected error");
                 g.writeObjectFieldStart("schema");
-                  g.writeObjectFieldStart("items");
-                    g.writeStringField("$ref", "#/definitions/Error");
-                  g.writeEndObject();
+                  g.writeStringField("$ref", "#/definitions/Error");
                 g.writeEndObject();
               g.writeEndObject();
             g.writeEndObject();
