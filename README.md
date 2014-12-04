@@ -339,7 +339,7 @@ Any change in source code should not violate API def used by the third parties.
 
 Access example api-docs with the following URL:
 
-    http://api-springmvc-jetty.herokuapp.com/api-docs
+    https://api-springmvc-jetty.herokuapp.com/api-docs
 
 # Heroku configuration
 This project uses gradle build-pack from *Heroku*.  

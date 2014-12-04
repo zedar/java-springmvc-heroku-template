@@ -59,6 +59,7 @@ public class ApiDocsController {
               g.writeStartObject();
                 g.writeStringField("name", "query");
                 g.writeStringField("in", "query");
+                g.writeStringField("type", "string");
               g.writeEndObject();
             g.writeEndArray();
             g.writeObjectFieldStart("responses");
