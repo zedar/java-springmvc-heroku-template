@@ -18,6 +18,7 @@ import api.service.ActionService;
 
 @Slf4j
 @Controller
+@RequestMapping("/api")
 public class ApiController {
   
   @Autowired

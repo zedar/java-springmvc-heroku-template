@@ -225,7 +225,7 @@ Global *webappctx.xml* should contain beans common for all servlets (for example
         
       <servlet-mapping>
         <servlet-name>rest</servlet-name>
-        <url-pattern>/api/*</url-pattern>
+        <url-pattern>/*</url-pattern>
       </servlet-mapping>
         
     </web-app>
@@ -306,6 +306,7 @@ Location: **src/main/api/entity/Action.java**
 
 ## Example controller class
 Location: **src/main/api/controller/ApiController.java**
+Controller class has defined roor *@RequestMapping("/api")*. All requests to urls beginning with */api* are directed to this controller.
 
 # Testing
 Location: **src/test/groovy**
@@ -324,6 +325,20 @@ API is based on *SpringMVC*, so for testing we use spring mocking funkcionality:
 Mocked APIs return HTTP status codes defined in
 
     org.springframework.http.HttpStatus.*
+
+# Swagger API definition
+Project contains example definition of API in the format of [Swagger standard](https://github.com/swagger-api/swagger-spec).
+
+## api-docs controller
+Swagger defines standard URI for accessing API definition. It is */api-docs* path.
+There is *api.controller.ApiDocsController* that returns *json* file with swagger API def.
+We use *jackson streaming* classes to generate API. 
+API is not automatically generated out of source file. This is consciously decision.
+Any change in source code should not violate API def used by the third parties.
+
+Access example api-docs with the following URL:
+
+    http://api-springmvc-jetty.herokuapp.com/api-docs
 
 # Heroku configuration
 This project uses gradle build-pack from *Heroku*.  
